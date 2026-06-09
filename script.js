@@ -7,7 +7,7 @@
   const overlay   = document.getElementById('introOverlay');
   const fillBar   = document.getElementById('introBarFill');
   const skipBtn   = document.getElementById('introSkip');
-  const DURATION  = 3200; // ms until auto-dismiss
+  const DURATION  = 1800; // ms until auto-dismiss
 
   if (!overlay) return;
 
@@ -34,8 +34,8 @@
       dismiss();
     }
   }
-  // Start bar after initial animations settle (≈1.2s)
-  setTimeout(() => requestAnimationFrame(animateBar), 1200);
+  // Start bar after initial animations settle (≈0.6s)
+  setTimeout(() => requestAnimationFrame(animateBar), 600);
 
   skipBtn.addEventListener('click', () => {
     dismiss();
