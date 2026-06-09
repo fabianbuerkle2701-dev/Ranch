@@ -45,16 +45,38 @@
 })();
 
 
-// ── SCROLL STREAK TURBO ──────────────────────────────────────────
+// ── SCROLL PROGRESS BAR + STREAK TURBO ──────────────────────────
 (function () {
+  const bar   = document.getElementById('scrollProgress');
   const layer = document.getElementById('streakLayer');
-  if (!layer) return;
   let turboTimer = null;
+
   window.addEventListener('scroll', () => {
-    layer.classList.add('turbo');
-    clearTimeout(turboTimer);
-    turboTimer = setTimeout(() => layer.classList.remove('turbo'), 600);
+    // Progress bar
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar && max > 0) bar.style.height = (window.scrollY / max * 100) + '%';
+
+    // Streak turbo
+    if (layer) {
+      layer.classList.add('turbo');
+      clearTimeout(turboTimer);
+      turboTimer = setTimeout(() => layer.classList.remove('turbo'), 700);
+    }
   }, { passive: true });
+})();
+
+// ── SCROLL REVEAL ────────────────────────────────────────────────
+(function () {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+    // Skip hero elements (they animate via CSS)
+    if (!el.closest('.hero')) io.observe(el);
+    else el.classList.add('in');
+  });
 })();
 
 
@@ -101,23 +123,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 
-// ── SCROLL FADE-IN ────────────────────────────────────────────────
-const io = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity   = '1';
-      entry.target.style.transform = 'translateY(0)';
-      io.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08 });
-
-document.querySelectorAll('.card, .info-card, .gallery-item, .mde-browser').forEach(el => {
-  el.style.opacity    = '0';
-  el.style.transform  = 'translateY(28px)';
-  el.style.transition = 'opacity .6s ease, transform .6s ease';
-  io.observe(el);
-});
 
 
 // ── MOBILE.DE IFRAME DETECTION ───────────────────────────────────

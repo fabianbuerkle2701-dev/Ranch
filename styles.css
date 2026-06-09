@@ -529,45 +529,146 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
 .bar-fill { height: 100%; width: var(--pct); background: #ffd700; border-radius: 3px; }
 
-/* ── SCROLL STREAK LAYER ─────────────────────────────── */
+/* ── SCROLL PROGRESS BAR ─────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 4px;
+  height: 0%;
+  z-index: 1001;
+  background: linear-gradient(180deg, #e63946 0%, #ff6b00 100%);
+  box-shadow: 2px 0 12px rgba(230,57,70,.9), 2px 0 30px rgba(230,57,70,.4);
+  pointer-events: none;
+}
+
+/* ── SPEED STREAK LAYER ──────────────────────────────── */
 .streak-layer {
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 60;
   pointer-events: none;
   overflow: hidden;
 }
+
 .sl {
   position: absolute;
-  top: 0; left: -120%;
-  width: 240%;
-  height: 2px;
-  border-radius: 2px;
+  left: -130%;
+  width: 260%;
+  border-radius: 50%;
+  opacity: 0;
+  transform-origin: left center;
+  transform: rotate(-7deg);
+  will-change: left, opacity;
+}
+
+/* ── Burst A (top ~35%) ─────────────────────────────── */
+.sl-a1 {
+  top: calc(35% - 2px);
+  height: 6px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(230,57,70,0) 20%,
-    rgba(230,57,70,.55) 45%,
-    rgba(255,130,60,.8) 50%,
-    rgba(230,57,70,.55) 55%,
-    rgba(230,57,70,0) 80%,
+    rgba(255,60,40,0) 22%,
+    rgba(255,80,50,.95) 46%,
+    rgba(255,200,80,1) 50%,
+    rgba(255,80,50,.95) 54%,
+    rgba(255,60,40,0) 78%,
     transparent 100%);
-  transform-origin: left center;
-  transform: rotate(-6deg);
-  animation: slFly var(--dur, 5s) ease-in-out infinite var(--delay, 0s);
-  opacity: 0;
+  filter: blur(.6px);
+  box-shadow: 0 0 16px 2px rgba(255,80,50,.65);
+  animation: slFly 3s cubic-bezier(.4,0,.6,1) infinite 0s;
 }
-.sl-1 { --dur: 5s;   --delay: 0s;    top: 22%; height: 1.5px; }
-.sl-2 { --dur: 5s;   --delay: 1.6s;  top: 44%; height: 3px; background: linear-gradient(90deg, transparent 0%, rgba(230,57,70,0) 15%, rgba(230,57,70,.7) 45%, rgba(255,160,60,1) 50%, rgba(230,57,70,.7) 55%, rgba(230,57,70,0) 85%, transparent 100%); }
-.sl-3 { --dur: 5s;   --delay: 3.1s;  top: 66%; height: 1.5px; }
-.sl-4 { --dur: 5s;   --delay: 4.2s;  top: 80%; height: 1px; opacity: 0; }
+.sl-a2 {
+  top: calc(35% - 6px);
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(230,57,70,0) 28%,
+    rgba(230,57,70,.7) 47%,
+    rgba(255,160,80,.9) 50%,
+    rgba(230,57,70,.7) 53%,
+    rgba(230,57,70,0) 72%,
+    transparent 100%);
+  animation: slFly 3s cubic-bezier(.4,0,.6,1) infinite .05s;
+}
+.sl-a3 {
+  top: calc(35% + 5px);
+  height: 1.5px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(230,57,70,0) 35%,
+    rgba(230,57,70,.4) 50%,
+    rgba(230,57,70,0) 65%,
+    transparent 100%);
+  animation: slFly 3s cubic-bezier(.4,0,.6,1) infinite .09s;
+}
+
+/* ── Burst B (lower ~64%) ───────────────────────────── */
+.sl-b1 {
+  top: calc(64% - 2px);
+  height: 6px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,60,40,0) 22%,
+    rgba(255,80,50,.95) 46%,
+    rgba(255,200,80,1) 50%,
+    rgba(255,80,50,.95) 54%,
+    rgba(255,60,40,0) 78%,
+    transparent 100%);
+  filter: blur(.6px);
+  box-shadow: 0 0 16px 2px rgba(255,80,50,.65);
+  animation: slFly 3s cubic-bezier(.4,0,.6,1) infinite 1.5s;
+}
+.sl-b2 {
+  top: calc(64% - 6px);
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(230,57,70,0) 28%,
+    rgba(230,57,70,.7) 47%,
+    rgba(255,160,80,.9) 50%,
+    rgba(230,57,70,.7) 53%,
+    rgba(230,57,70,0) 72%,
+    transparent 100%);
+  animation: slFly 3s cubic-bezier(.4,0,.6,1) infinite 1.55s;
+}
+.sl-b3 {
+  top: calc(64% + 5px);
+  height: 1.5px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(230,57,70,0) 35%,
+    rgba(230,57,70,.4) 50%,
+    rgba(230,57,70,0) 65%,
+    transparent 100%);
+  animation: slFly 3s cubic-bezier(.4,0,.6,1) infinite 1.59s;
+}
+
 @keyframes slFly {
-  0%   { left: -120%; opacity: 0; }
-  8%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { left: 120%;  opacity: 0; }
+  0%   { left: -130%; opacity: 0; }
+  4%   { opacity: 1; }
+  96%  { opacity: 1; }
+  100% { left: 130%;  opacity: 0; }
 }
-/* turbo mode when scrolling */
-.streak-layer.turbo .sl { animation-duration: 1.8s !important; }
+.streak-layer.turbo .sl { animation-duration: 1s !important; }
+
+/* ── REVEAL ANIMATIONS ───────────────────────────────── */
+.reveal-up, .reveal-left, .reveal-right {
+  opacity: 0;
+  transition: opacity .7s ease var(--d, 0s), transform .7s cubic-bezier(.22,1,.36,1) var(--d, 0s);
+}
+.reveal-up    { transform: translateY(40px); }
+.reveal-left  { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+.reveal-up.in, .reveal-left.in, .reveal-right.in {
+  opacity: 1;
+  transform: none;
+}
+/* hero reveals play instantly on load */
+.hero .reveal-up { animation: heroReveal .8s cubic-bezier(.22,1,.36,1) calc(.5s + var(--d,0s)) both; }
+@keyframes heroReveal {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: none; }
+}
 
 /* ── INTRO OVERLAY (VIDEO) ───────────────────────────── */
 .intro-overlay {
