@@ -7,35 +7,41 @@
   const overlay  = document.getElementById('introOverlay');
   const video    = document.getElementById('introVideo');
   const darken   = document.getElementById('introDarken');
-  const skipBtn  = document.getElementById('introSkip');
+  const flash    = document.getElementById('introFlash');
+  const brand    = document.getElementById('introBrand');
   if (!overlay || !video) return;
 
   document.body.style.overflow = 'hidden';
 
   function dismiss() {
-    darken.classList.add('dim');           // darken to match hero
+    // 1. White flash
+    if (flash) {
+      flash.classList.add('fire');
+      setTimeout(() => flash.classList.remove('fire'), 150);
+    }
+    // 2. Fade out brand overlay
+    if (brand) { brand.style.transition = 'opacity .4s'; brand.style.opacity = '0'; }
+    // 3. Darken + zoom video out
     setTimeout(() => {
+      darken.classList.add('dim');
       overlay.classList.add('fade-out');
       overlay.addEventListener('transitionend', () => {
         overlay.classList.add('hidden');
         document.body.style.overflow = '';
       }, { once: true });
-    }, 200);
+    }, 100);
   }
 
-  // Start darkening ~0.5s before video ends
+  // Darken 0.7s before end
   video.addEventListener('timeupdate', () => {
-    if (video.duration && video.currentTime >= video.duration - 0.6) {
+    if (video.duration && video.currentTime >= video.duration - 0.7) {
       darken.classList.add('dim');
     }
   });
 
   video.addEventListener('ended', dismiss);
-  skipBtn.addEventListener('click', dismiss);
-
-  // Fallbacks
   video.addEventListener('error', dismiss);
-  setTimeout(dismiss, 12000);
+  setTimeout(dismiss, 15000);
 })();
 
 

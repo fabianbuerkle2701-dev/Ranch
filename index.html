@@ -26,8 +26,31 @@
       <source src="videos/intro.webm" type="video/webm" />
       <source src="videos/intro.mp4"  type="video/mp4"  />
     </video>
+
+    <!-- Cinematic letterbox bars -->
+    <div class="intro-lb intro-lb--top"></div>
+    <div class="intro-lb intro-lb--bot"></div>
+
+    <!-- Logo overlay auf dem Video -->
+    <div class="intro-brand-overlay" id="introBrand">
+      <svg class="ibo-arc" viewBox="0 0 260 55" fill="none">
+        <path class="ibo-arc-path" d="M12 46 Q130 8 248 46"
+          stroke="#e63946" stroke-width="2.5" fill="none" stroke-linecap="round"
+          stroke-dasharray="280" stroke-dashoffset="280"/>
+      </svg>
+      <div class="ibo-title">
+        <span class="ibo-word">Auto Pro</span>
+        <span class="ibo-wheel">⊙</span>
+        <span class="ibo-word">Service</span>
+      </div>
+      <div class="ibo-name">LITAJ</div>
+      <div class="ibo-line"></div>
+      <div class="ibo-sub">Kfz Reparatur &nbsp;·&nbsp; Reifenservice &nbsp;·&nbsp; Aufbereitung &nbsp;·&nbsp; Neuried</div>
+    </div>
+
+    <!-- Flash bei Übergang -->
+    <div class="intro-flash" id="introFlash"></div>
     <div class="intro-darken" id="introDarken"></div>
-    <button class="intro-skip" id="introSkip">Überspringen ›</button>
   </div>
 
   <!-- NAVIGATION -->
