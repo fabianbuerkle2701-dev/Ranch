@@ -12,6 +12,91 @@
 </head>
 <body>
 
+  <!-- INTRO ANIMATION OVERLAY -->
+  <div id="introOverlay" class="intro-overlay">
+    <div class="intro-streaks">
+      <div class="streak s1"></div><div class="streak s2"></div>
+      <div class="streak s3"></div><div class="streak s4"></div>
+      <div class="streak s5"></div><div class="streak s6"></div>
+    </div>
+    <div class="intro-stage">
+      <div class="intro-car-scene">
+        <svg class="intro-car-svg" viewBox="0 0 360 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- headlight beams -->
+          <polygon class="beam beam-l" points="20,60 -60,30 -60,90" fill="url(#beamGrad)" opacity="0.5"/>
+          <polygon class="beam beam-r" points="20,70 -60,50 -60,90" fill="url(#beamGrad)" opacity="0.3"/>
+          <defs>
+            <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#e63946" stop-opacity="0"/>
+              <stop offset="1" stop-color="#ff9a00" stop-opacity="0.8"/>
+            </linearGradient>
+            <radialGradient id="glowL" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#ff9a00" stop-opacity="1"/>
+              <stop offset="1" stop-color="#ff9a00" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="glowR" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#ff3030" stop-opacity="1"/>
+              <stop offset="1" stop-color="#ff3030" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- car body -->
+          <path d="M55 95 L75 55 L120 35 L240 35 L280 55 L310 58 L320 70 L320 95 Z" fill="#1a1a1a" stroke="#e63946" stroke-width="1.5"/>
+          <!-- windshield / roof -->
+          <path d="M95 55 L125 38 L235 38 L265 55 Z" fill="#16213e" stroke="#334" stroke-width="1"/>
+          <!-- side windows -->
+          <path d="M105 55 L130 42 L175 42 L175 55 Z" fill="#0d1b2a" opacity="0.9"/>
+          <path d="M185 55 L185 42 L235 42 L260 55 Z" fill="#0d1b2a" opacity="0.9"/>
+          <!-- door lines -->
+          <line x1="178" y1="40" x2="178" y2="93" stroke="#2a2a2a" stroke-width="1"/>
+          <!-- front headlight glow -->
+          <ellipse cx="318" cy="62" rx="12" ry="8" fill="url(#glowL)" opacity="0.9"/>
+          <ellipse cx="322" cy="62" rx="6" ry="4" fill="#ffcc66"/>
+          <!-- rear lights -->
+          <ellipse cx="58" cy="75" rx="8" ry="10" fill="url(#glowR)" opacity="0.8"/>
+          <ellipse cx="56" cy="75" rx="4" ry="6" fill="#ff3333"/>
+          <!-- front wheel -->
+          <circle cx="268" cy="99" r="22" fill="#111" stroke="#e63946" stroke-width="2"/>
+          <circle cx="268" cy="99" r="12" fill="#222" stroke="#555" stroke-width="1"/>
+          <circle cx="268" cy="99" r="4" fill="#e63946"/>
+          <!-- spokes -->
+          <line x1="268" y1="78" x2="268" y2="88" stroke="#555" stroke-width="2"/>
+          <line x1="268" y1="110" x2="268" y2="120" stroke="#555" stroke-width="2"/>
+          <line x1="247" y1="99" x2="257" y2="99" stroke="#555" stroke-width="2"/>
+          <line x1="279" y1="99" x2="289" y2="99" stroke="#555" stroke-width="2"/>
+          <!-- rear wheel -->
+          <circle cx="100" cy="99" r="22" fill="#111" stroke="#e63946" stroke-width="2"/>
+          <circle cx="100" cy="99" r="12" fill="#222" stroke="#555" stroke-width="1"/>
+          <circle cx="100" cy="99" r="4" fill="#e63946"/>
+          <line x1="100" y1="78" x2="100" y2="88" stroke="#555" stroke-width="2"/>
+          <line x1="100" y1="110" x2="100" y2="120" stroke="#555" stroke-width="2"/>
+          <line x1="79" y1="99" x2="89" y2="99" stroke="#555" stroke-width="2"/>
+          <line x1="111" y1="99" x2="121" y2="99" stroke="#555" stroke-width="2"/>
+          <!-- ground shadow -->
+          <ellipse cx="185" cy="122" rx="145" ry="6" fill="rgba(230,57,70,0.12)"/>
+        </svg>
+      </div>
+
+      <div class="intro-logo-wrap">
+        <svg class="intro-arc" viewBox="0 0 240 50" fill="none">
+          <path class="arc-draw" d="M10 42 Q120 6 230 42" stroke="#e63946" stroke-width="2.5" fill="none" stroke-linecap="round"
+            stroke-dasharray="260" stroke-dashoffset="260"/>
+        </svg>
+        <div class="intro-brand-row">
+          <span class="ib-word ib-1">Auto Pro</span>
+          <span class="ib-wheel">⊙</span>
+          <span class="ib-word ib-2">Service</span>
+        </div>
+        <div class="intro-name">LITAJ</div>
+        <div class="intro-sub">Kfz Reparatur &nbsp;·&nbsp; Reifenservice &nbsp;·&nbsp; Aufbereitung</div>
+      </div>
+    </div>
+
+    <div class="intro-bar-track">
+      <div class="intro-bar-fill" id="introBarFill"></div>
+    </div>
+    <button class="intro-skip" id="introSkip">Überspringen ›</button>
+  </div>
+
   <!-- NAVIGATION -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
@@ -141,64 +226,67 @@
   <section class="fahrzeuge" id="fahrzeuge">
     <div class="section-container">
       <div class="section-header section-header--light">
-        <span class="section-label section-label--dark">Gebrauchtfahrzeuge</span>
-        <h2 class="section-title">Aktuelle Fahrzeuge auf mobile.de</h2>
-        <p class="section-desc">Stöbern Sie in unserem aktuellen Fahrzeugbestand – direkt auf unserem mobile.de Händlerprofil.</p>
+        <span class="section-label section-label--dark">Live-Bestand</span>
+        <h2 class="section-title">Aktuelle Fahrzeuge</h2>
+        <p class="section-desc">Unser aktueller Fahrzeugbestand – direkt von mobile.de</p>
       </div>
-      <div class="mobile-de-card">
-        <div class="mobile-de-left">
-          <div class="mobile-de-logo">
-            <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mde-svg">
-              <rect width="120" height="40" rx="6" fill="#FF6600"/>
-              <text x="10" y="27" font-family="Arial" font-size="18" font-weight="bold" fill="white">mobile.de</text>
-            </svg>
+
+      <!-- Browser-Chrome Wrapper -->
+      <div class="mde-browser">
+        <div class="mde-chrome">
+          <div class="mde-dots">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
           </div>
-          <h3 class="mobile-de-title">Auto Pro Service Litaj</h3>
-          <p class="mobile-de-desc">Entdecken Sie unsere aktuellen Gebrauchtwagen-Angebote. Alle Fahrzeuge geprüft und aufbereitet – Qualität, der Sie vertrauen können.</p>
-          <div class="mobile-de-features">
-            <div class="mdf-item">
-              <span class="mdf-icon">✅</span>
-              <span>Geprüfte Fahrzeuge</span>
-            </div>
-            <div class="mdf-item">
-              <span class="mdf-icon">✅</span>
-              <span>Professionell aufbereitet</span>
-            </div>
-            <div class="mdf-item">
-              <span class="mdf-icon">✅</span>
-              <span>Faire Preise</span>
-            </div>
+          <div class="mde-address-bar">
+            <span class="mde-lock">🔒</span>
+            <span>home.mobile.de/AUTOPROSERVICELITAJ</span>
           </div>
-          <a href="https://home.mobile.de/AUTOPROSERVICELITAJ#ses" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-mde">
-            Alle Fahrzeuge ansehen →
-          </a>
+          <a href="https://home.mobile.de/AUTOPROSERVICELITAJ#ses" target="_blank" rel="noopener noreferrer" class="mde-ext-btn" title="In neuem Tab öffnen">↗</a>
         </div>
-        <div class="mobile-de-right">
-          <div class="mobile-de-visual">
-            <div class="car-silhouette">
-              <svg viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40 80 L60 45 L100 30 L200 30 L240 45 L260 80 L40 80Z" fill="#1a1a2e" stroke="#e63946" stroke-width="2"/>
-                <path d="M80 45 L110 35 L190 35 L220 45Z" fill="#16213e"/>
-                <circle cx="90" cy="85" r="18" fill="#0f3460" stroke="#e63946" stroke-width="3"/>
-                <circle cx="90" cy="85" r="8" fill="#1a1a2e"/>
-                <circle cx="210" cy="85" r="18" fill="#0f3460" stroke="#e63946" stroke-width="3"/>
-                <circle cx="210" cy="85" r="8" fill="#1a1a2e"/>
-                <path d="M30 80 L270 80" stroke="#e63946" stroke-width="2"/>
+
+        <div class="mde-viewport" id="mdeViewport">
+          <!-- Loading state -->
+          <div class="mde-loading" id="mdeLoading">
+            <div class="mde-spinner"></div>
+            <p>Fahrzeuge werden geladen…</p>
+          </div>
+
+          <!-- The actual iframe -->
+          <iframe
+            id="mdeFrame"
+            class="mde-frame"
+            src="https://home.mobile.de/AUTOPROSERVICELITAJ#ses"
+            title="Auto Pro Service Litaj – Fahrzeuge auf mobile.de"
+            frameborder="0"
+            scrolling="yes"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+
+          <!-- Fallback if iframe is blocked by mobile.de -->
+          <div class="mde-fallback" id="mdeFallback">
+            <div class="mde-fallback-inner">
+              <svg class="mde-fallback-logo" viewBox="0 0 140 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="140" height="46" rx="8" fill="#FF6600"/>
+                <text x="12" y="31" font-family="Arial,sans-serif" font-size="20" font-weight="bold" fill="white">mobile.de</text>
               </svg>
-            </div>
-            <div class="mobile-de-stats">
-              <div class="mds-item">
-                <span class="mds-num">⭐ 4,8</span>
-                <span class="mds-label">Bewertung</span>
+              <h3>Fahrzeuge auf mobile.de ansehen</h3>
+              <p>Entdecken Sie unsere geprüften Gebrauchtwagen – alle aufbereitet und zu fairen Preisen.</p>
+              <div class="mde-fallback-features">
+                <span>✅ Geprüfte Fahrzeuge</span>
+                <span>✅ Professionell aufbereitet</span>
+                <span>✅ Faire Preise</span>
               </div>
-              <div class="mds-item">
-                <span class="mds-num">20+</span>
-                <span class="mds-label">Kundenbewertungen</span>
-              </div>
+              <a href="https://home.mobile.de/AUTOPROSERVICELITAJ#ses" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Alle Fahrzeuge auf mobile.de ansehen →
+              </a>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
