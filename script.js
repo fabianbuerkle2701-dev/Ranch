@@ -2,44 +2,53 @@
    AUTO PRO SERVICE LITAJ – Script
    ================================================================ */
 
-// ── INTRO ANIMATION ───────────────────────────────────────────────
+// ── VIDEO INTRO ───────────────────────────────────────────────────
 (function () {
-  const overlay   = document.getElementById('introOverlay');
-  const fillBar   = document.getElementById('introBarFill');
-  const skipBtn   = document.getElementById('introSkip');
-  const DURATION  = 1800; // ms until auto-dismiss
+  const overlay  = document.getElementById('introOverlay');
+  const video    = document.getElementById('introVideo');
+  const darken   = document.getElementById('introDarken');
+  const skipBtn  = document.getElementById('introSkip');
+  if (!overlay || !video) return;
 
-  if (!overlay) return;
-
-  // Prevent body scroll while intro plays
   document.body.style.overflow = 'hidden';
 
   function dismiss() {
-    overlay.classList.add('exit');
-    document.body.style.overflow = '';
-    overlay.addEventListener('transitionend', () => {
-      overlay.classList.add('hidden');
-    }, { once: true });
+    darken.classList.add('dim');           // darken to match hero
+    setTimeout(() => {
+      overlay.classList.add('fade-out');
+      overlay.addEventListener('transitionend', () => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, { once: true });
+    }, 200);
   }
 
-  // Animated progress bar
-  let start = null;
-  function animateBar(ts) {
-    if (!start) start = ts;
-    const pct = Math.min(((ts - start) / DURATION) * 100, 100);
-    fillBar.style.width = pct + '%';
-    if (pct < 100) {
-      requestAnimationFrame(animateBar);
-    } else {
-      dismiss();
+  // Start darkening ~0.5s before video ends
+  video.addEventListener('timeupdate', () => {
+    if (video.duration && video.currentTime >= video.duration - 0.6) {
+      darken.classList.add('dim');
     }
-  }
-  // Start bar after initial animations settle (≈0.6s)
-  setTimeout(() => requestAnimationFrame(animateBar), 600);
-
-  skipBtn.addEventListener('click', () => {
-    dismiss();
   });
+
+  video.addEventListener('ended', dismiss);
+  skipBtn.addEventListener('click', dismiss);
+
+  // Fallbacks
+  video.addEventListener('error', dismiss);
+  setTimeout(dismiss, 12000);
+})();
+
+
+// ── SCROLL STREAK TURBO ──────────────────────────────────────────
+(function () {
+  const layer = document.getElementById('streakLayer');
+  if (!layer) return;
+  let turboTimer = null;
+  window.addEventListener('scroll', () => {
+    layer.classList.add('turbo');
+    clearTimeout(turboTimer);
+    turboTimer = setTimeout(() => layer.classList.remove('turbo'), 600);
+  }, { passive: true });
 })();
 
 
@@ -47,7 +56,7 @@
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
+}, { passive: true });
 
 
 // ── MOBILE MENU ───────────────────────────────────────────────────
@@ -64,11 +73,11 @@ function checkOpenStatus() {
   const el = document.getElementById('openStatus');
   if (!el) return;
   const now  = new Date();
-  const day  = now.getDay();          // 0=Sun … 6=Sat
+  const day  = now.getDay();
   const mins = now.getHours() * 60 + now.getMinutes();
   let open = false;
-  if (day >= 1 && day <= 5 && mins >= 540 && mins < 1080) open = true; // Mo–Fr 9–18
-  if (day === 6             && mins >= 540 && mins <  840) open = true; // Sa   9–14
+  if (day >= 1 && day <= 5 && mins >= 540 && mins < 1080) open = true;
+  if (day === 6             && mins >= 540 && mins <  840) open = true;
   el.textContent = open ? '✅ Jetzt geöffnet' : '❌ Aktuell geschlossen';
   el.className   = 'open-status ' + (open ? 'open' : 'closed-now');
 }
@@ -86,11 +95,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 
-// ── SCROLL FADE-IN (Intersection Observer) ───────────────────────
+// ── SCROLL FADE-IN ────────────────────────────────────────────────
 const io = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity  = '1';
+      entry.target.style.opacity   = '1';
       entry.target.style.transform = 'translateY(0)';
       io.unobserve(entry.target);
     }
@@ -98,8 +107,8 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 
 document.querySelectorAll('.card, .info-card, .gallery-item, .mde-browser').forEach(el => {
-  el.style.opacity   = '0';
-  el.style.transform = 'translateY(28px)';
+  el.style.opacity    = '0';
+  el.style.transform  = 'translateY(28px)';
   el.style.transition = 'opacity .6s ease, transform .6s ease';
   io.observe(el);
 });
@@ -118,14 +127,9 @@ document.querySelectorAll('.card, .info-card, .gallery-item, .mde-browser').forE
     fallback.classList.add('show');
   }
 
-  function onLoaded() {
-    // Cross-origin frames fire load even when X-Frame-Options blocks them.
-    // Try accessing contentDocument – SecurityError means cross-origin (could still be blocked).
-    // We use a short timeout to check if the iframe actually rendered content
-    // by seeing whether the inner document has any body height.
+  frame.addEventListener('load', () => {
     loading.classList.add('hide');
     try {
-      // Same-origin: works fine
       const h = frame.contentDocument?.body?.scrollHeight;
       if (h && h > 50) {
         frame.classList.add('loaded');
@@ -133,18 +137,12 @@ document.querySelectorAll('.card, .info-card, .gallery-item, .mde-browser').forE
         showFallback();
       }
     } catch (_) {
-      // Cross-origin loaded (SecurityError) – could be real content or error page.
-      // Show the frame optimistically; if it's blank the fallback timer will catch it.
       frame.classList.add('loaded');
     }
-  }
+  });
 
-  frame.addEventListener('load', onLoaded);
-
-  // Hard timeout: if load event never fires within 8s → show fallback
-  const timeout = setTimeout(() => {
+  const t = setTimeout(() => {
     if (!frame.classList.contains('loaded')) showFallback();
   }, 8000);
-
-  frame.addEventListener('load', () => clearTimeout(timeout));
+  frame.addEventListener('load', () => clearTimeout(t));
 })();
