@@ -116,6 +116,9 @@ const istAktiv = (href: string) =>
     </div>
   </div>
 
+  <!-- Backdrop: verdunkelt die Seite wenn Menue offen ist -->
+  <div id="menue-backdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden lg:hidden" aria-hidden="true"></div>
+
   <!-- Mobiles Menue -->
   <div
     id="mobiles-menue"
@@ -175,23 +178,33 @@ const istAktiv = (href: string) =>
   const mobilesMenue = document.getElementById('mobiles-menue');
   const hamburgerSymbol = document.getElementById('hamburger-symbol');
   const schliessenSymbol = document.getElementById('schliessen-symbol');
+  const menueBackdrop = document.getElementById('menue-backdrop');
+
+  function menueSchliessen() {
+    mobilesMenue?.classList.add('hidden');
+    menueBackdrop?.classList.add('hidden');
+    hamburgerSymbol?.classList.remove('hidden');
+    schliessenSymbol?.classList.add('hidden');
+    hamburger?.setAttribute('aria-expanded', 'false');
+  }
 
   hamburger?.addEventListener('click', () => {
     const istOffen = mobilesMenue?.classList.contains('hidden') === false;
-    mobilesMenue?.classList.toggle('hidden');
-    hamburgerSymbol?.classList.toggle('hidden');
-    schliessenSymbol?.classList.toggle('hidden');
-    hamburger.setAttribute('aria-expanded', String(!istOffen));
+    if (istOffen) {
+      menueSchliessen();
+    } else {
+      mobilesMenue?.classList.remove('hidden');
+      menueBackdrop?.classList.remove('hidden');
+      hamburgerSymbol?.classList.add('hidden');
+      schliessenSymbol?.classList.remove('hidden');
+      hamburger?.setAttribute('aria-expanded', 'true');
+    }
   });
 
-  // Menü schliessen beim Klick auf einen Link
+  // Menü schliessen beim Klick auf Backdrop oder Link
+  menueBackdrop?.addEventListener('click', menueSchliessen);
   mobilesMenue?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobilesMenue.classList.add('hidden');
-      hamburgerSymbol?.classList.remove('hidden');
-      schliessenSymbol?.classList.add('hidden');
-      hamburger?.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', menueSchliessen);
   });
 
   // Kopfzeile beim Scrollen abdunkeln und einfaerben
