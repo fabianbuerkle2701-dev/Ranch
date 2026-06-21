@@ -116,9 +116,6 @@ const istAktiv = (href: string) =>
     </div>
   </div>
 
-  <!-- Backdrop: verdunkelt die Seite wenn Menue offen ist -->
-  <div id="menue-backdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden lg:hidden" aria-hidden="true"></div>
-
   <!-- Mobiles Menue -->
   <div
     id="mobiles-menue"
@@ -168,6 +165,9 @@ const istAktiv = (href: string) =>
     </div>
   </div>
 </header>
+
+<!-- Backdrop ausserhalb des Headers, damit z-index korrekt wirkt -->
+<div id="menue-backdrop" class="fixed inset-0 z-40 bg-black/60 hidden lg:hidden" aria-hidden="true"></div>
 
 <!-- Abstand fuer Fixed Header -->
 <div class="h-16"></div>
