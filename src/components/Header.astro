@@ -20,7 +20,7 @@ const istAktiv = (href: string) =>
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
   <!-- Hauptleiste -->
-  <div class="bg-blau-900/95 backdrop-blur-md border-b border-blau-700/50">
+  <div class="bg-blau-900/95 backdrop-blur-md border-b-2 border-gelb-400">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
 
@@ -169,22 +169,22 @@ const istAktiv = (href: string) =>
 <script>
   // Hamburger-Menü umschalten
   const hamburger = document.getElementById('hamburger');
-  const mobilesMenü = document.getElementById('mobiles-menü');
+  const mobilesMenue = document.getElementById('mobiles-menue');
   const hamburgerSymbol = document.getElementById('hamburger-symbol');
   const schliessenSymbol = document.getElementById('schliessen-symbol');
 
   hamburger?.addEventListener('click', () => {
-    const istOffen = mobilesMenü?.classList.contains('hidden') === false;
-    mobilesMenü?.classList.toggle('hidden');
+    const istOffen = mobilesMenue?.classList.contains('hidden') === false;
+    mobilesMenue?.classList.toggle('hidden');
     hamburgerSymbol?.classList.toggle('hidden');
     schliessenSymbol?.classList.toggle('hidden');
     hamburger.setAttribute('aria-expanded', String(!istOffen));
   });
 
   // Menü schliessen beim Klick auf einen Link
-  mobilesMenü?.querySelectorAll('a').forEach((link) => {
+  mobilesMenue?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      mobilesMenü.classList.add('hidden');
+      mobilesMenue.classList.add('hidden');
       hamburgerSymbol?.classList.remove('hidden');
       schliessenSymbol?.classList.add('hidden');
       hamburger?.setAttribute('aria-expanded', 'false');
