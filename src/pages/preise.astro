@@ -1,20 +1,31 @@
 ---
 import Seitenlayout from '../components/Seitenlayout.astro';
+import WarumV3 from '../components/WarumV3.astro';
 ---
 
 <Seitenlayout
   title="Preise und Tarife"
   description="Transparente Preise bei Fahrschule V3. GmbH Offenburg: Tarife Select und Prime, Jubiläums-Grundbetrag, Preisgarantie 6 Monate. Kein Vergleichbares in Deutschland."
 >
-  <!-- Seiten-Hero -->
-  <section class="bg-blau-900 text-white py-16 md:py-24 border-b-4 border-gelb-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Seiten-Hero mit Foto -->
+  <section class="relative text-white overflow-hidden min-h-[50vh] flex items-center">
+    <div class="absolute inset-0" aria-hidden="true">
+      <img
+        src="/images/fahrschule-innenraum.jpeg"
+        alt="Theorieraum der Fahrschule V3. GmbH Offenburg"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/40"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gelb-400"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="max-w-2xl">
         <span class="badge mb-4 inline-block">Jubiläums-Angebot</span>
         <h1 class="font-display font-900 text-5xl md:text-6xl leading-tight mb-5">
           Klare Preise,<br />keine Überraschungen.
         </h1>
-        <p class="text-schiefer-300 text-lg leading-relaxed">
+        <p class="text-schiefer-200 text-lg leading-relaxed">
           Preisgarantie ab Anmeldedatum 6 Monate gültig. Alle Leistungen 24/7 in der App
           einsehbar. Zahlung in vier übersichtlichen Schritten.
         </p>
@@ -34,7 +45,7 @@ import Seitenlayout from '../components/Seitenlayout.astro';
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         <!-- Tarif Select -->
-        <div class="karte reveal flex flex-col">
+        <div class="karte reveal flex flex-col border-2 border-blau-900">
           <div class="mb-4">
             <span class="badge mb-3 inline-block">Tarif Select</span>
             <div class="flex items-end gap-2 mb-1">
@@ -322,4 +333,5 @@ import Seitenlayout from '../components/Seitenlayout.astro';
       </a>
     </div>
   </section>
+  <WarumV3 />
 </Seitenlayout>
