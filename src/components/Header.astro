@@ -20,7 +20,7 @@ const istAktiv = (href: string) =>
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
   <!-- Hauptleiste -->
-  <div class="bg-blau-900/95 backdrop-blur-md border-b-2 border-gelb-400">
+  <div id="kopfzeile-hintergrund" class="border-b-2 transition-all duration-400">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
 
@@ -194,13 +194,28 @@ const istAktiv = (href: string) =>
     });
   });
 
-  // Kopfzeile beim Scrollen abdunkeln
+  // Kopfzeile beim Scrollen abdunkeln und einfaerben
   const kopfzeile = document.getElementById('kopfzeile');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      kopfzeile?.classList.add('shadow-lg');
-    } else {
-      kopfzeile?.classList.remove('shadow-lg');
-    }
-  });
+  const kopfzeileHintergrund = document.getElementById('kopfzeile-hintergrund');
+  function headerAktualisieren() {
+    const gescrollt = window.scrollY > 40;
+    kopfzeile?.classList.toggle('shadow-lg', gescrollt);
+    kopfzeileHintergrund?.classList.toggle('ist-gescrollt', gescrollt);
+  }
+  window.addEventListener('scroll', headerAktualisieren, { passive: true });
+  headerAktualisieren();
 </script>
+
+<style>
+  #kopfzeile-hintergrund {
+    background-color: rgba(15, 15, 15, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-color: rgba(255, 255, 255, 0.12);
+    transition: background-color 0.35s ease, border-color 0.35s ease;
+  }
+  #kopfzeile-hintergrund.ist-gescrollt {
+    background-color: rgba(15, 15, 15, 0.96);
+    border-color: #f5a623;
+  }
+</style>
