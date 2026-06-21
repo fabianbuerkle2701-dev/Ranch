@@ -1,0 +1,15 @@
+# Build-Ausgabe
+dist/
+.astro/
+
+# Abhaengigkeiten
+node_modules/
+
+# Umgebungsvariablen
+.env
+.env.local
+.env.*.local
+
+# Editor
+.DS_Store
+*.swp

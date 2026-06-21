@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts laden */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-schiefer-800 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Primär-Button (Anmeldung) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gelb-400 text-blau-900 font-display font-700 text-sm uppercase tracking-wider rounded-lg transition-all duration-200 hover:bg-gelb-500 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:ring-offset-2;
+  }
+
+  /* Sekundaer-Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-white text-white font-display font-600 text-sm uppercase tracking-wider rounded-lg transition-all duration-200 hover:bg-white hover:text-blau-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  /* Karten */
+  .karte {
+    @apply bg-white rounded-2xl shadow-md p-6 border border-schiefer-100;
+  }
+
+  /* Abschnittstitel */
+  .abschnitt-titel {
+    @apply font-display font-800 text-3xl md:text-4xl text-blau-900 leading-tight;
+  }
+
+  /* Abschnitt-Untertitel */
+  .abschnitt-untertitel {
+    @apply text-schiefer-500 text-lg mt-3 max-w-2xl;
+  }
+
+  /* Badge / Pill */
+  .badge {
+    @apply inline-block px-3 py-1 bg-gelb-400 text-blau-900 text-xs font-display font-700 uppercase tracking-wider rounded-full;
+  }
+}
+
+/* Scroll-Reveal-Animationen */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.sichtbar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accordion */
+.accordion-inhalt {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.accordion-inhalt.offen {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inhalt > div {
+  overflow: hidden;
+}

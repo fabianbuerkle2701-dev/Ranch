@@ -1,0 +1,380 @@
+---
+import Seitenlayout from '../components/Seitenlayout.astro';
+---
+
+<Seitenlayout
+  title="Hier beginnt alles"
+  description="Fahrschule V3. GmbH Offenburg: Fuehrerschein Klasse B197, Fast Lane Theorie in 7 Tagen, keine Wartezeit, bestes Preis-Leistungs-Verhaeltnis der Region."
+>
+  <!-- Hero-Bereich -->
+  <section class="relative bg-blau-900 text-white overflow-hidden">
+    <!-- Hintergrundmuster -->
+    <div class="absolute inset-0 opacity-5" aria-hidden="true">
+      <div class="absolute inset-0 bg-gradient-to-br from-gelb-400/20 via-transparent to-transparent"></div>
+      <div
+        class="absolute -top-24 -right-24 w-96 h-96 bg-gelb-400 rounded-full blur-3xl opacity-10"
+      ></div>
+      <div
+        class="absolute -bottom-24 -left-24 w-96 h-96 bg-blau-600 rounded-full blur-3xl opacity-20"
+      ></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+      <div class="max-w-3xl">
+        <!-- Badge -->
+        <span class="badge mb-6 inline-block">
+          Fast Lane: Theorie in nur 7 Tagen
+        </span>
+
+        <!-- Hauptueberschrift -->
+        <h1 class="font-display font-900 text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+          Hier beginnt<br />
+          <span class="text-gelb-400">alles.</span>
+        </h1>
+
+        <p class="text-schiefer-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
+          Volker J. Blaesius und sein Team begleiten dich sicher ans Ziel. Die groesste
+          Einzelfahrschule der Region, B197, keine Wartezeit und bestes Preis-Leistungs-Verhaeltnis.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary text-base"
+          >
+            Jetzt anmelden
+          </a>
+          <a href="/preise" class="btn-secondary text-base">
+            Preise ansehen
+          </a>
+        </div>
+
+        <!-- Kennzahlen -->
+        <div class="mt-14 grid grid-cols-3 gap-6 border-t border-blau-700/50 pt-8">
+          <div>
+            <p class="font-display font-800 text-3xl text-gelb-400">9</p>
+            <p class="text-schiefer-400 text-sm mt-1">Fahrlehrerinnen und Fahrlehrer</p>
+          </div>
+          <div>
+            <p class="font-display font-800 text-3xl text-gelb-400">7</p>
+            <p class="text-schiefer-400 text-sm mt-1">Tage Theorie (Fast Lane)</p>
+          </div>
+          <div>
+            <p class="font-display font-800 text-3xl text-gelb-400">seit 2008</p>
+            <p class="text-schiefer-400 text-sm mt-1">Das Original</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bildplatzhalter fuer eigenes Foto -->
+    <div class="absolute right-0 top-0 bottom-0 w-2/5 hidden lg:block">
+      <div class="h-full bg-blau-800 flex items-center justify-center">
+        <div class="text-center p-8">
+          <div class="w-24 h-24 rounded-full bg-blau-700 mx-auto mb-4 flex items-center justify-center">
+            <svg class="w-12 h-12 text-schiefer-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+          </div>
+          <p class="text-schiefer-500 text-xs">Bildplatzhalter: eigenes Foto einfuegen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Lane Kurstermine -->
+  <section class="py-16 md:py-24 bg-schiefer-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <span class="badge mb-4 inline-block">Aktuelle Termine</span>
+        <h2 class="abschnitt-titel">Fast Lane Kurse</h2>
+        <p class="abschnitt-untertitel mx-auto">
+          Alle 14 Theorieunterrichte in nur 7 Abenden. Einzige Fahrschule in Offenburg mit diesem
+          Konzept, seit ueber 10 Jahren.
+        </p>
+      </div>
+
+      <!-- Kurs-Tabelle -->
+      <div class="reveal overflow-x-auto rounded-2xl shadow-md">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-blau-900 text-white">
+              <th class="px-6 py-4 text-left font-display font-700 text-xs uppercase tracking-wider">
+                Kurs
+              </th>
+              <th class="px-6 py-4 text-left font-display font-700 text-xs uppercase tracking-wider">
+                Zeitraum
+              </th>
+              <th class="px-6 py-4 text-left font-display font-700 text-xs uppercase tracking-wider">
+                Ablauf
+              </th>
+              <th class="px-6 py-4 text-left font-display font-700 text-xs uppercase tracking-wider">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-schiefer-100">
+            <tr class="hover:bg-schiefer-50 transition-colors">
+              <td class="px-6 py-4 font-medium text-blau-900">Fast Lane Juni</td>
+              <td class="px-6 py-4 text-schiefer-600">15. bis 24. Juni</td>
+              <td class="px-6 py-4 text-schiefer-600">
+                18:00 bis 19:30 Uhr und 19:40 bis 21:10 Uhr<br />
+                <span class="text-xs text-schiefer-400">Je Abend zwei Themen, Wochenende frei</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                  Jetzt einsteigen
+                </span>
+              </td>
+            </tr>
+            <tr class="hover:bg-schiefer-50 transition-colors">
+              <td class="px-6 py-4 font-medium text-blau-900">Fast Lane Juli</td>
+              <td class="px-6 py-4 text-schiefer-600">20. bis 29. Juli</td>
+              <td class="px-6 py-4 text-schiefer-600">
+                18:00 bis 19:30 Uhr und 19:40 bis 21:10 Uhr<br />
+                <span class="text-xs text-schiefer-400">Direkt vor den Sommerferien</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="inline-block px-2 py-1 bg-gelb-400/20 text-gelb-600 text-xs font-semibold rounded-full">
+                  Anmeldung offen
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-4 text-center text-sm text-schiefer-500 reveal">
+        Teilnahme am laufenden Kurs jederzeit moeglich. Themen 1 bis 14 ueber die Kurstage
+        verteilt.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kernvorteile -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="abschnitt-titel">Warum V3.?</h2>
+        <p class="abschnitt-untertitel mx-auto">
+          Seit 2008 setzen wir Massstabe in der Fahrausbildung.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Vorteil 1 -->
+        <div class="karte reveal text-center">
+          <div class="w-12 h-12 bg-gelb-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-blau-900 mb-2">Keine Wartezeit</h3>
+          <p class="text-schiefer-500 text-sm leading-relaxed">
+            Fahrstunden starten sofort nach der Anmeldung. Kein Simulator-Zwang.
+          </p>
+        </div>
+
+        <!-- Vorteil 2 -->
+        <div class="karte reveal text-center">
+          <div class="w-12 h-12 bg-gelb-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-blau-900 mb-2">B197 als Standard</h3>
+          <p class="text-schiefer-500 text-sm leading-relaxed">
+            Start auf Automatik, Konzentration auf den Verkehr, schnellere Fortschritte.
+          </p>
+        </div>
+
+        <!-- Vorteil 3 -->
+        <div class="karte reveal text-center">
+          <div class="w-12 h-12 bg-gelb-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-blau-900 mb-2">Transparent und fair</h3>
+          <p class="text-schiefer-500 text-sm leading-relaxed">
+            Keine versteckten Kosten. Preisgarantie 6 Monate ab Anmeldung.
+          </p>
+        </div>
+
+        <!-- Vorteil 4 -->
+        <div class="karte reveal text-center">
+          <div class="w-12 h-12 bg-gelb-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-blau-900 mb-2">9er-Team</h3>
+          <p class="text-schiefer-500 text-sm leading-relaxed">
+            9 Fahrlehrerinnen und Fahrlehrer. Persoenliche Betreuung bis zur Pruefung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarif Prime Hinweis -->
+  <section class="py-16 md:py-20 bg-blau-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <span class="badge mb-6 inline-block">Neu: V3. Prime</span>
+      <h2 class="font-display font-800 text-3xl md:text-4xl mb-4">
+        Wiederholungspruefungen kostenlos inklusive
+      </h2>
+      <p class="text-schiefer-300 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+        Im Tarif Prime sind bis zu zwei Wiederholungspruefungen in Theorie und in der Praxis
+        kostenlos enthalten. Die Lern-App ist ebenfalls gratis dabei. Deutschlandweit kein
+        vergleichbares Angebot bekannt.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/preise" class="btn-primary">
+          Alle Tarife vergleichen
+        </a>
+        <a
+          href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary"
+        >
+          Jetzt anmelden
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motorrad-Empfehlung -->
+  <section class="py-12 bg-schiefer-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      <div class="karte flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-shrink-0 w-12 h-12 bg-blau-900 rounded-xl flex items-center justify-center">
+          <svg class="w-6 h-6 text-gelb-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-display font-700 text-blau-900 mb-1">Motorradfuehrerschein</h3>
+          <p class="text-schiefer-500 text-sm">
+            V3. bietet keine eigene Motorradausbildung an. Empfohlen wird die befreundete
+            <a
+              href="https://bikers-school.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blau-600 hover:text-blau-800 font-medium underline underline-offset-2"
+            >
+              Bikers-School</a
+            >, die den Motorradfuehrerschein in einer Woche anbietet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gedenken -->
+  <section class="py-8 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-schiefer-400 text-sm">
+        Die Fahrschule V3. trauert um ihren ehemaligen Mitarbeiter Egon Hagedorn.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kontaktformular -->
+  <section class="py-16 md:py-24 bg-schiefer-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="abschnitt-titel">Frage oder Anliegen?</h2>
+        <p class="abschnitt-untertitel mx-auto">
+          Schreib uns direkt. Volker antwortet persoenlich.
+        </p>
+      </div>
+
+      <form
+        name="kontakt"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-feld"
+        class="karte reveal space-y-5"
+      >
+        <!-- Netlify Honeypot-Feld -->
+        <input type="hidden" name="form-name" value="kontakt" />
+        <p class="hidden">
+          <label>Nicht ausfuellen: <input name="bot-feld" /></label>
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="block text-sm font-medium text-blau-900 mb-1.5">
+              Name <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 placeholder-schiefer-400 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow"
+              placeholder="Dein Name"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-blau-900 mb-1.5">
+              E-Mail <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 placeholder-schiefer-400 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow"
+              placeholder="deine@email.de"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="nachricht" class="block text-sm font-medium text-blau-900 mb-1.5">
+            Nachricht <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+          </label>
+          <textarea
+            id="nachricht"
+            name="nachricht"
+            rows="5"
+            required
+            class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 placeholder-schiefer-400 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow resize-none"
+            placeholder="Deine Frage oder dein Anliegen..."
+          ></textarea>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="datenschutz"
+            name="datenschutz"
+            required
+            class="mt-1 w-4 h-4 text-gelb-400 border-schiefer-300 rounded focus:ring-gelb-400"
+          />
+          <label for="datenschutz" class="text-sm text-schiefer-600 leading-relaxed">
+            Ich habe die
+            <a href="/datenschutz" class="text-blau-600 hover:underline">Datenschutzerklaerung</a>
+            gelesen und stimme der Verarbeitung meiner Daten zu.
+            <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full sm:w-auto btn-primary"
+        >
+          Nachricht senden
+        </button>
+      </form>
+    </div>
+  </section>
+</Seitenlayout>

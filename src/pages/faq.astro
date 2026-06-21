@@ -1,0 +1,161 @@
+---
+import Seitenlayout from '../components/Seitenlayout.astro';
+
+const fragen = [
+  {
+    frage: "Wie melde ich mich bei V3. an?",
+    antwort: "Ausschliesslich ueber das Online-Anmeldeformular. Danach bekommst du eine E-Mail mit Anschreiben und Bitte um Einzahlung des Grundbetrags. Nach Zahlungseingang werden deine Daten erfasst und du erhaeltst per E-Mail: Ausbildungsvertrag, Antrag auf Fahrerlaubnis und Zugangsdaten zur Lern-App (auch Spam-Ordner pruefen). Danach kannst du sofort am Theorieunterricht teilnehmen."
+  },
+  {
+    frage: "Wie laeuft die Beantragung der Fahrerlaubnis?",
+    antwort: "Der Antrag wird ueber das Buergerbuero bzw. Rathaus gestellt. Dafuer braucht es: den Antrag der Fahrschule, Nachweis des Erste-Hilfe-Kurses, aktuellen Sehtest und ein biometrisches Passfoto. Bearbeitungsdauer 4 bis 6 Wochen. Ohne bearbeiteten Antrag ist keine Theoriepruefung moeglich. Die Ausbildung kann aber bereits parallel zur Beantragung starten. Bitte im Antrag Variante B197 oder B mit SZ78 ankreuzen."
+  },
+  {
+    frage: "Wie lange bleiben Erste-Hilfe-Kurs, Antrag und Theorieunterricht gueltig?",
+    antwort: "Der Erste-Hilfe-Kurs (mindestens 9x 45 Minuten) hat kein Ablaufdatum. Ein bearbeiteter Antrag ist in der Regel ein Jahr gueltig, er kann durch erneute Beantragung ohne weitere Unterlagen verlaengert werden. Nach bestandener Theoriepruefung hast du ein Jahr Zeit bis zur Fahrpruefung, sonst muss die Theoriepruefung wiederholt werden. Besuchte Theorieunterrichte sind zwei Jahre gueltig."
+  },
+  {
+    frage: "Wo kann ich den Erste-Hilfe-Kurs besuchen?",
+    antwort: "In Offenburg z. B. beim Roten Kreuz, bei den Maltesern sowie samstags bei Maus oder Pro Life. Dort gibt es oft ein Komplettpaket mit Sehtest und Passfoto. Sehtest und Passfoto sind auch beim Optiker oder Fotografen moeglich."
+  },
+  {
+    frage: "Ab wann kann ich mit der Ausbildung beginnen?",
+    antwort: "Fruehestens sechs Monate vor dem 17. Geburtstag (Begleitetes Fahren BF17) oder sechs Monate vor dem 18. Geburtstag. Die Theoriepruefung ist fruehestens drei Monate, die Fahrpruefung fruehestens einen Monat vor dem Geburtstag moeglich. Waehrend der Beantragung koennen Fast Lane und Lern-App bereits genutzt werden."
+  },
+  {
+    frage: "Wie laeuft die theoretische Ausbildung?",
+    antwort: "Fuer den Ersterwerb sind 12x 90 Minuten Grundstoff und 2x 90 Minuten Zusatzstoff vorgeschrieben, also 14 Unterrichte insgesamt, immer in Kursform. Die schnellste zugelassene Variante: alle Unterrichte an nur 7 Abenden (Fast Lane). Besuchte Theorieunterrichte verfallen nach zwei Jahren. Kurse finden in der Regel einmal im Monat statt, die Termine stehen auf der Startseite."
+  },
+  {
+    frage: "Woran erkenne ich, dass mein Antrag bearbeitet ist?",
+    antwort: "Du erhaeltst zwei Rechnungen: die erste von der Fuehrerscheinstelle (Antrag in Bearbeitung) und die zweite vom TUeV (Pruefauftrag erstellt, Zulassung zur Theoriepruefung). Beide bitte zeitnah zahlen. Anmeldung zu Pruefungen nur ueber die Fahrschule, dienstags 14 bis 18 Uhr. Theoriepruefungen finden montags beim TUeV Offenburg statt. Die Theoriepruefung ist in 12 Fremdsprachen moeglich (Arabisch, Englisch, Franzoesisch, Griechisch, Italienisch, Kroatisch, Polnisch, Portugiesisch, Rumaenisch, Russisch, Spanisch, Tuerkisch). Gueltiger Ausweis oder Reisepass ist Pflicht. Bestanden mit hoechstens 10 Fehlerpunkten, 30 Minuten Zeit. Wartefrist bei Wiederholung zwei Wochen."
+  },
+  {
+    frage: "Ab wann Fahrstunden und wie viele?",
+    antwort: "Sofort nach der Anmeldung. Ein Wunsch nach einer bestimmten Fahrlehrerin oder einem Fahrlehrer ist moeglich, je nach Kapazitaet. Unterschieden wird zwischen Uebungsfahrstunden (Stadtfahrstunden, Anzahl individuell, nicht vorab bestimmbar) und 12 vorgeschriebenen Sonderfahrstunden (5x Ueberland, 4x Autobahn, 3x Nacht). B197 und B-Automatik fuehren im Schnitt zu deutlich weniger Uebungsfahrten. Eine Fahrstunde sind immer 45 Minuten. Nach jeder Fahrstunde Unterschrift, alle Daten 24/7 in der App pruefbar."
+  },
+  {
+    frage: "Wann geht es zur praktischen Fahrpruefung?",
+    antwort: "Wenn genug Uebungsfahrstunden und alle Sonderfahrstunden absolviert sind und Fahrlehrer und Schueler sich sicher fuehlen. Pruefungen finden in der Regel montags statt. Anmeldung 10 Tage vorher beim TUeV, keine kurzfristige Absage. Bei Nichterscheinen verfaellt die TUeV-Gebuehr (aktuell 129,83 Euro), Ausnahme Krankheit. Gueltiger Ausweis Pflicht. Die Fahrpruefung Klasse B dauert 55 Minuten."
+  },
+  {
+    frage: "Wie lange ist die Wartezeit nach nicht bestandener Pruefung?",
+    antwort: "Immer zwei Wochen, sowohl bei der Theorie- als auch bei der Fahrpruefung. Vor erneuter Anmeldung muss die TUeV-Gebuehr erneut gezahlt werden."
+  },
+  {
+    frage: "Wie geht es nach bestandener Fahrpruefung weiter?",
+    antwort: "Herzlichen Glueckwunsch! Jetzt beginnt das eigentliche Lernen im Strassenverkehr. Es gilt eine zweijaehrige Probezeit. Bis zum 21. Lebensjahr ist kein Alkohol oder Drogen erlaubt, auch kein Cannabis. Bei Auffaelligkeit kann die Probezeit auf vier Jahre verlaengert werden und ein Aufbauseminar wird angeordnet. Volker J. Blaesius ist als Seminarleiter ausgebildet, bietet diese Seminare aktuell aber nicht an."
+  },
+  {
+    frage: "Wie bezahle ich meinen Fuehrerschein?",
+    antwort: "In vier Schritten: 1. Grundbetrag nach Anmeldung (Select: 200,- Euro, Prime: 500,- Euro). 2. Anzahlung 15 Uebungsfahrstunden zu Beginn der Fahrausbildung (aktuell 975,- Euro). 3. Anzahlung 12 Sonderfahrstunden zu Beginn der Sonderfahrten (aktuell 780,- Euro). 4. Abschlussrechnung mit Verrechnung vor der Fahrpruefung, Guthaben wird ausbezahlt. Preisgarantie 6 Monate. Zahlung bar oder per Ueberweisung. Vorstellung zur Pruefung nur nach vollstaendigem Zahlungseingang."
+  }
+];
+---
+
+<Seitenlayout
+  title="FAQ: Alles was du wissen moechtest"
+  description="Haeufige Fragen zur Fahrausbildung bei V3. GmbH Offenburg: Anmeldung, Ablauf, Kosten, Fahrstunden, Pruefungen und mehr. Alle Antworten auf einen Blick."
+>
+  <!-- Seiten-Hero -->
+  <section class="bg-blau-900 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <span class="badge mb-4 inline-block">12 Fragen und Antworten</span>
+        <h1 class="font-display font-900 text-5xl md:text-6xl leading-tight mb-5">
+          Alles was du<br />wissen moechtest.
+        </h1>
+        <p class="text-schiefer-300 text-lg leading-relaxed">
+          Hier findest du Antworten auf die haeufigsten Fragen rund um deine Ausbildung bei V3.
+          Etwas unklar? Schreib uns einfach per WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-3" id="faq-liste">
+        {fragen.map((element, index) => (
+          <div class="karte reveal overflow-hidden" data-faq-item>
+            <button
+              type="button"
+              class="w-full flex items-center justify-between gap-4 text-left"
+              aria-expanded="false"
+              data-faq-toggle
+            >
+              <span class="font-display font-700 text-blau-900 text-base leading-snug pr-2">
+                <span class="text-gelb-500 mr-2 text-sm">{index + 1}.</span>
+                {element.frage}
+              </span>
+              <svg
+                class="w-5 h-5 text-schiefer-400 flex-shrink-0 transition-transform duration-300"
+                data-faq-icon
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div class="accordion-inhalt" data-faq-content>
+              <div>
+                <p class="pt-4 border-t border-schiefer-100 mt-4 text-schiefer-600 text-sm leading-relaxed">
+                  {element.antwort}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- WhatsApp CTA -->
+      <div class="mt-12 text-center reveal">
+        <p class="text-schiefer-500 mb-4">Noch offene Fragen?</p>
+        <a
+          href="https://wa.me/491735324092"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-display font-700 text-sm rounded-lg hover:bg-green-600 transition-colors"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Per WhatsApp fragen
+        </a>
+      </div>
+    </div>
+  </section>
+</Seitenlayout>
+
+<script>
+  // Accordion-Logik fuer die FAQ-Seite
+  document.querySelectorAll('[data-faq-item]').forEach((element) => {
+    const schaltflaeche = element.querySelector('[data-faq-toggle]');
+    const inhalt = element.querySelector('[data-faq-content]');
+    const symbol = element.querySelector('[data-faq-icon]');
+
+    schaltflaeche?.addEventListener('click', () => {
+      const istOffen = inhalt?.classList.contains('offen');
+
+      // Alle anderen schliessen
+      document.querySelectorAll('[data-faq-content].offen').forEach((offenerInhalt) => {
+        offenerInhalt.classList.remove('offen');
+        offenerInhalt.closest('[data-faq-item]')
+          ?.querySelector('[data-faq-toggle]')
+          ?.setAttribute('aria-expanded', 'false');
+        offenerInhalt.closest('[data-faq-item]')
+          ?.querySelector('[data-faq-icon]')
+          ?.classList.remove('rotate-180');
+      });
+
+      if (!istOffen) {
+        inhalt?.classList.add('offen');
+        schaltflaeche?.setAttribute('aria-expanded', 'true');
+        symbol?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,222 @@
+---
+import Seitenlayout from '../components/Seitenlayout.astro';
+---
+
+<Seitenlayout
+  title="Karriere bei Fahrschule V3."
+  description="Fahrlehrer oder Fahrlehrerin gesucht in Offenburg. Fahrschule V3. GmbH bietet aussergewoehnlichen Arbeitsplatz, Work-Life-Balance, E-Fahrzeuge und privaten Kfz-Zuschuss."
+>
+  <!-- Seiten-Hero -->
+  <section class="bg-blau-900 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <span class="badge mb-4 inline-block">Jetzt bewerben</span>
+        <h1 class="font-display font-900 text-5xl md:text-6xl leading-tight mb-5">
+          Werde Teil<br />von V3.
+        </h1>
+        <p class="text-schiefer-300 text-lg leading-relaxed">
+          Wir suchen baldmoeglichst zwei Fahrlehrerinnen oder Fahrlehrer in Vollzeit. Und als
+          Ausbildungsfahrschule begrueßen wir auch Praktikantinnen und Praktikanten.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stellen-Highlights -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <span class="badge mb-4 inline-block">Das erwartet dich</span>
+          <h2 class="abschnitt-titel mb-4">
+            Fahren. Lehren. Gestalten.
+          </h2>
+          <p class="text-schiefer-500 leading-relaxed mb-6">
+            V3. ist nicht nur die groesste Einzelfahrschule der Region, sondern auch eine der
+            modernsten. Mit einem Grosseil elektrischer und hybrider Fahrzeuge und viel Spielraum
+            fuer eigene Ideen bieten wir einen Arbeitsplatz, der seinesgleichen sucht.
+          </p>
+          <p class="text-schiefer-500 leading-relaxed mb-6">
+            In den vergangenen Jahren wurden sechs Personen im Praktikum ausgebildet und
+            uebernommen.
+          </p>
+          <a
+            href="mailto:v3.volker@gmail.com"
+            class="btn-primary inline-flex"
+          >
+            Jetzt bewerben
+          </a>
+        </div>
+
+        <!-- Vorteile-Liste -->
+        <div class="space-y-4 reveal">
+          <div class="flex gap-4 karte">
+            <div class="flex-shrink-0 w-10 h-10 bg-gelb-400/20 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-700 text-blau-900 mb-1">Gehaltsvorstellungen werden erfuellt</h3>
+              <p class="text-schiefer-500 text-sm">Wir bieten dir das Gehalt, das du dir vorstellst.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 karte">
+            <div class="flex-shrink-0 w-10 h-10 bg-gelb-400/20 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-700 text-blau-900 mb-1">Herausragende Work-Life-Balance</h3>
+              <p class="text-schiefer-500 text-sm">Viel Gestaltungsspielraum und aussergewoehnlicher Arbeitsplatz.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 karte">
+            <div class="flex-shrink-0 w-10 h-10 bg-gelb-400/20 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-700 text-blau-900 mb-1">Moderne Elektro- und Hybridflotte</h3>
+              <p class="text-schiefer-500 text-sm">Als erste Fahrschule in Deutschland mit einem Tesla. Herkoemmliche Fahrzeuge ebenfalls vorhanden.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 karte">
+            <div class="flex-shrink-0 w-10 h-10 bg-gelb-400/20 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-700 text-blau-900 mb-1">Private Fahrzeugnutzung</h3>
+              <p class="text-schiefer-500 text-sm">Private Nutzung des Fahrschulwagens im gesetzlichen Rahmen moeglich.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 karte">
+            <div class="flex-shrink-0 w-10 h-10 bg-gelb-400/20 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-gelb-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-700 text-blau-900 mb-1">Ausbildungsfahrschule</h3>
+              <p class="text-schiefer-500 text-sm">Praktikantinnen und Praktikanten willkommen. Sechs Uebernahmen aus dem Praktikum in den letzten Jahren.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bewerbungs-CTA -->
+  <section class="py-16 md:py-20 bg-schiefer-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <h2 class="abschnitt-titel mb-4">Bereit fuer den naechsten Schritt?</h2>
+      <p class="text-schiefer-500 text-lg mb-8 leading-relaxed">
+        Bewirb dich per E-Mail direkt bei Volker J. Blaesius, Geschaeftsfuehrer der Fahrschule
+        V3. GmbH. Wir freuen uns auf deine Nachricht.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="mailto:v3.volker@gmail.com"
+          class="btn-primary"
+        >
+          Per E-Mail bewerben
+        </a>
+        <a
+          href="https://wa.me/491735324092"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white font-display font-700 text-sm uppercase tracking-wider rounded-lg hover:bg-green-600 transition-colors"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Per WhatsApp melden
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-schiefer-400">
+        Kontakt: <a href="mailto:v3.volker@gmail.com" class="underline hover:text-schiefer-600">v3.volker@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Google Maps mit Datenschutz-Consent -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 reveal">
+        <h2 class="abschnitt-titel">Unser Standort</h2>
+        <p class="text-schiefer-500 mt-2">
+          Lange Strasse 41, 77652 Offenburg (direkt neben der Post im Zentrum)
+        </p>
+      </div>
+
+      <!-- Karten-Container mit Consent -->
+      <div class="max-w-4xl mx-auto reveal" id="karten-container">
+        <!-- Vorschau-Placeholder (sichtbar bis Klick) -->
+        <div
+          id="karten-placeholder"
+          class="rounded-2xl overflow-hidden bg-schiefer-100 border border-schiefer-200 flex flex-col items-center justify-center p-12 text-center min-h-64 cursor-pointer group hover:bg-schiefer-200 transition-colors"
+        >
+          <svg class="w-12 h-12 text-schiefer-400 mb-4 group-hover:text-schiefer-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          <h3 class="font-display font-700 text-blau-900 mb-2">Google Maps laden</h3>
+          <p class="text-schiefer-500 text-sm mb-4 max-w-sm">
+            Fuer die Kartenanzeige wird Google Maps geladen. Dabei werden Daten an Google
+            uebertragen. Mit Klick stimmst du zu.
+          </p>
+          <button
+            id="karte-laden-btn"
+            type="button"
+            class="btn-primary"
+          >
+            Karte jetzt anzeigen
+          </button>
+        </div>
+
+        <!-- Die eigentliche Karte (erst nach Klick sichtbar) -->
+        <div id="karten-iframe-wrapper" class="hidden rounded-2xl overflow-hidden" style="height: 400px;">
+          <!-- Iframe wird per JS eingefuegt -->
+        </div>
+      </div>
+    </div>
+  </section>
+</Seitenlayout>
+
+<script>
+  // Google Maps erst nach Benutzer-Zustimmung laden
+  const btn = document.getElementById('karte-laden-btn');
+  const placeholder = document.getElementById('karten-placeholder');
+  const iframeWrapper = document.getElementById('karten-iframe-wrapper');
+
+  btn?.addEventListener('click', () => {
+    if (!iframeWrapper) return;
+
+    // Iframe dynamisch erstellen
+    const iframe = document.createElement('iframe');
+    iframe.src =
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.6!2d7.9441!3d48.4733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479712c3b3b3b3b3%3A0x1234567890abcdef!2sLange+Stra%C3%9Fe+41%2C+77652+Offenburg!5e0!3m2!1sde!2sde!4v1234567890';
+    iframe.width = '100%';
+    iframe.height = '400';
+    iframe.style.border = '0';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.title = 'Google Maps: Fahrschule V3. GmbH, Lange Strasse 41, Offenburg';
+
+    iframeWrapper.appendChild(iframe);
+
+    placeholder?.classList.add('hidden');
+    iframeWrapper.classList.remove('hidden');
+  });
+</script>

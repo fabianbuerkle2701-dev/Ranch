@@ -1,0 +1,160 @@
+---
+import Seitenlayout from '../components/Seitenlayout.astro';
+---
+
+<Seitenlayout
+  title="Widerrufsbelehrung"
+  description="Widerrufsbelehrung und Widerrufsformular der Fahrschule V3. GmbH Offenburg gemaess Paragraf 312g BGB."
+>
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-display font-900 text-4xl text-blau-900 mb-8">Widerrufsbelehrung</h1>
+
+      <div class="space-y-8 text-schiefer-600 leading-relaxed">
+
+        <div>
+          <h2 class="font-display font-700 text-blau-900 text-xl mb-3">Widerrufsrecht</h2>
+          <p>
+            Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gruenden diesen Vertrag zu
+            widerrufen. Die Widerrufsfrist betraegt vierzehn Tage ab dem Tag des Vertragsschlusses.
+          </p>
+          <p class="mt-3">
+            Um Ihr Widerrufsrecht auszuueben, muessen Sie uns (V3. GmbH, Volker J. Blaesius, Lange
+            Strasse 41, 77652 Offenburg, E-Mail:
+            <a href="mailto:v3.volker@gmail.com" class="text-blau-600 hover:underline">v3.volker@gmail.com</a>)
+            mittels einer eindeutigen Erklaerung (z. B. ein mit der Post versandter Brief oder
+            E-Mail) ueber Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.
+          </p>
+          <p class="mt-3">
+            Sie koennen dafuer das nachfolgende Muster-Widerrufsformular verwenden, das jedoch nicht
+            vorgeschrieben ist. Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung
+            ueber die Ausuebung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-700 text-blau-900 text-xl mb-3">Folgen des Widerrufs</h2>
+          <p>
+            Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen
+            erhalten haben, einschliesslich der Lieferkosten (mit Ausnahme der zusaetzlichen Kosten,
+            die sich daraus ergeben, dass Sie eine andere Art der Lieferung als die von uns
+            angebotene, guenstigste Standardlieferung gewaehlt haben), unverzueglich und
+            spaetestens binnen vierzehn Tagen ab dem Tag zurueckzuzahlen, an dem die Mitteilung
+            ueber Ihren Widerruf dieses Vertrags bei uns eingegangen ist.
+          </p>
+          <p class="mt-3">
+            Haben Sie verlangt, dass die Dienstleistungen waehrend der Widerrufsfrist beginnen
+            sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis
+            zu dem Zeitpunkt, zu dem Sie uns von der Ausuebung des Widerrufsrechts hinsichtlich
+            dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum
+            Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.
+          </p>
+        </div>
+
+        <div class="border border-schiefer-200 rounded-xl p-6">
+          <h2 class="font-display font-700 text-blau-900 text-xl mb-4">Muster-Widerrufsformular</h2>
+          <p class="text-sm text-schiefer-500 mb-4">
+            (Wenn Sie den Vertrag widerrufen wollen, dann fuellen Sie bitte dieses Formular aus und
+            senden Sie es zurueck.)
+          </p>
+
+          <form
+            name="widerruf"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-feld"
+            class="space-y-4"
+          >
+            <input type="hidden" name="form-name" value="widerruf" />
+            <p class="hidden">
+              <label>Nicht ausfuellen: <input name="bot-feld" /></label>
+            </p>
+
+            <p class="text-schiefer-600">
+              An: V3. GmbH, Volker J. Blaesius, Lange Strasse 41, 77652 Offenburg,
+              v3.volker@gmail.com
+            </p>
+
+            <p class="text-schiefer-600 text-sm italic">
+              Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag ueber
+              die Erbringung der folgenden Dienstleistung:
+            </p>
+
+            <div>
+              <label for="dienstleistung" class="block text-sm font-medium text-blau-900 mb-1">
+                Vertrag / Dienstleistung
+              </label>
+              <input
+                type="text"
+                id="dienstleistung"
+                name="dienstleistung"
+                required
+                class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent"
+                placeholder="Fahrlehrvertrag, Ausbildungsvertrag etc."
+              />
+            </div>
+
+            <div>
+              <label for="bestellt-am" class="block text-sm font-medium text-blau-900 mb-1">
+                Bestellt am / Erhalten am
+              </label>
+              <input
+                type="date"
+                id="bestellt-am"
+                name="bestellt-am"
+                required
+                class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label for="name-widerruf" class="block text-sm font-medium text-blau-900 mb-1">
+                Name des Verbrauchers
+              </label>
+              <input
+                type="text"
+                id="name-widerruf"
+                name="name"
+                required
+                autocomplete="name"
+                class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label for="adresse-widerruf" class="block text-sm font-medium text-blau-900 mb-1">
+                Anschrift des Verbrauchers
+              </label>
+              <textarea
+                id="adresse-widerruf"
+                name="adresse"
+                rows="3"
+                required
+                class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent resize-none"
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="datum-unterschrift" class="block text-sm font-medium text-blau-900 mb-1">
+                Datum
+              </label>
+              <input
+                type="date"
+                id="datum-unterschrift"
+                name="datum"
+                required
+                class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent"
+              />
+            </div>
+
+            <button type="submit" class="btn-primary">
+              Widerruf absenden
+            </button>
+
+            <p class="text-xs text-schiefer-400">(*) Unzutreffendes streichen.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Seitenlayout>

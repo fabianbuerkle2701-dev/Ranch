@@ -1,0 +1,116 @@
+---
+// Haupt-Layout fuer alle Seiten
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-default.jpg',
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const siteName = 'Fahrschule V3. GmbH Offenburg';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1b2a" />
+
+    <!-- SEO Meta-Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts vorgeladen -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD strukturierte Daten -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DrivingSchool",
+        "name": "Fahrschule V3. GmbH",
+        "url": "https://www.v3-fahrschule.com",
+        "telephone": "+491735324092",
+        "email": "v3.volker@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Lange Strasse 41",
+          "addressLocality": "Offenburg",
+          "postalCode": "77652",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.4733,
+          "longitude": 7.9441
+        },
+        "openingHours": "Tu 14:00-18:00",
+        "founder": {
+          "@type": "Person",
+          "name": "Volker J. Blaesius"
+        }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Kopfzeile einbinden -->
+    <slot name="header" />
+
+    <!-- Seiteninhalt -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Fusszeile -->
+    <slot name="footer" />
+
+    <!-- Scroll-Reveal Skript -->
+    <script>
+      // Elemente beim Scrollen einblenden
+      const beobachter = new IntersectionObserver(
+        (eintraege) => {
+          eintraege.forEach((eintrag) => {
+            if (eintrag.isIntersecting) {
+              eintrag.target.classList.add('sichtbar');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => beobachter.observe(el));
+    </script>
+  </body>
+</html>

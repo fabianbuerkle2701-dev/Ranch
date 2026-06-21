@@ -1,0 +1,23 @@
+---
+// Vollstaendiges Seitenlayout mit Header, Footer und WhatsApp-Button
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const props = Astro.props;
+---
+
+<Layout {...props}>
+  <Header slot="header" />
+  <slot />
+  <Footer slot="footer" />
+  <WhatsAppButton />
+</Layout>
