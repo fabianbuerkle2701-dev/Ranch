@@ -8,15 +8,11 @@ import Seitenlayout from '../components/Seitenlayout.astro';
 >
   <!-- Hero-Bereich -->
   <section class="relative bg-blau-900 text-white overflow-hidden">
-    <!-- Hintergrundmuster -->
-    <div class="absolute inset-0 opacity-5" aria-hidden="true">
-      <div class="absolute inset-0 bg-gradient-to-br from-gelb-400/20 via-transparent to-transparent"></div>
-      <div
-        class="absolute -top-24 -right-24 w-96 h-96 bg-gelb-400 rounded-full blur-3xl opacity-10"
-      ></div>
-      <div
-        class="absolute -bottom-24 -left-24 w-96 h-96 bg-blau-600 rounded-full blur-3xl opacity-20"
-      ></div>
+    <!-- Hintergrundmuster: orangene Kreise als Logo-Referenz -->
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gelb-400 rounded-full opacity-10 blur-3xl"></div>
+      <div class="absolute top-1/2 -right-16 w-64 h-64 bg-gelb-500 rounded-full opacity-5 blur-2xl"></div>
+      <div class="absolute -bottom-16 left-1/4 w-48 h-48 bg-gelb-400 rounded-full opacity-8 blur-2xl"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">

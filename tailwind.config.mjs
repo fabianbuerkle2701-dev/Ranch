@@ -4,19 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primaerfarben
+        // Primaerfarben: Schwarz/Dunkel passend zum Logo
         blau: {
-          900: '#0d1b2a',
-          800: '#1b2a3b',
-          700: '#243447',
-          600: '#2e4058',
-          500: '#3a5068',
+          900: '#0f0f0f',
+          800: '#1a1a1a',
+          700: '#262626',
+          600: '#333333',
+          500: '#444444',
         },
-        // Akzentfarbe Signalgelb
+        // Akzentfarbe: Orange aus dem Logo
         gelb: {
-          400: '#facc15',
-          500: '#eab308',
-          600: '#ca8a04',
+          400: '#f5a623',
+          500: '#e09415',
+          600: '#c47d08',
         },
         // Grau-Toene
         schiefer: {

@@ -37,7 +37,7 @@
 
   /* Abschnittstitel */
   .abschnitt-titel {
-    @apply font-display font-800 text-3xl md:text-4xl text-blau-900 leading-tight;
+    @apply font-display font-800 text-3xl md:text-4xl text-schiefer-900 leading-tight;
   }
 
   /* Abschnitt-Untertitel */

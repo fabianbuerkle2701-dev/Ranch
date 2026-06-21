@@ -27,15 +27,17 @@ const istAktiv = (href: string) =>
         <!-- Logo -->
         <a
           href="/"
-          class="flex items-center gap-2 group"
+          class="flex items-center gap-3 group"
           aria-label="Fahrschule V3. GmbH Startseite"
         >
-          <span
-            class="font-display font-900 text-2xl text-white tracking-tight group-hover:text-gelb-400 transition-colors"
-          >
-            V3.
-          </span>
-          <span class="text-schiefer-300 text-sm font-medium hidden sm:block">
+          <!-- Logo: oranger Kreis mit V3 schwarz -->
+          <div class="relative flex-shrink-0">
+            <div class="w-9 h-9 bg-gelb-400 rounded-full flex items-center justify-center">
+              <span class="font-display font-900 text-base text-blau-900 leading-none tracking-tight">V3</span>
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-gelb-400 rounded-full border-2 border-blau-900"></div>
+          </div>
+          <span class="text-schiefer-300 text-sm font-medium hidden sm:block group-hover:text-white transition-colors">
             Fahrschule GmbH
           </span>
         </a>
