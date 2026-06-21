@@ -2,9 +2,9 @@
 // Sticky Header mit Navigation und mobilem Hamburger-Menue
 const navigation = [
   { label: 'Start', href: '/' },
-  { label: 'Autofuehrerschein', href: '/autofuehrerschein' },
+  { label: 'Autoführerschein', href: '/autofuehrerschein' },
   { label: 'Preise', href: '/preise' },
-  { label: 'Anhaenger', href: '/anhaenger' },
+  { label: 'Anhänger', href: '/anhaenger' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Karriere', href: '/karriere' },
 ];
@@ -95,7 +95,7 @@ const istAktiv = (href: string) =>
           id="hamburger"
           type="button"
           class="lg:hidden p-2 rounded-lg text-schiefer-200 hover:text-white hover:bg-blau-700 transition-colors"
-          aria-label="Menue oeffnen"
+          aria-label="Menü öffnen"
           aria-expanded="false"
           aria-controls="mobiles-menue"
         >
@@ -115,7 +115,7 @@ const istAktiv = (href: string) =>
   <div
     id="mobiles-menue"
     class="lg:hidden hidden bg-blau-900 border-b border-blau-700"
-    aria-label="Mobiles Menue"
+    aria-label="Mobiles Menü"
   >
     <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
       {
@@ -167,24 +167,24 @@ const istAktiv = (href: string) =>
 <div class="h-16"></div>
 
 <script>
-  // Hamburger-Menue umschalten
+  // Hamburger-Menü umschalten
   const hamburger = document.getElementById('hamburger');
-  const mobilesMenue = document.getElementById('mobiles-menue');
+  const mobilesMenü = document.getElementById('mobiles-menü');
   const hamburgerSymbol = document.getElementById('hamburger-symbol');
   const schliessenSymbol = document.getElementById('schliessen-symbol');
 
   hamburger?.addEventListener('click', () => {
-    const istOffen = mobilesMenue?.classList.contains('hidden') === false;
-    mobilesMenue?.classList.toggle('hidden');
+    const istOffen = mobilesMenü?.classList.contains('hidden') === false;
+    mobilesMenü?.classList.toggle('hidden');
     hamburgerSymbol?.classList.toggle('hidden');
     schliessenSymbol?.classList.toggle('hidden');
     hamburger.setAttribute('aria-expanded', String(!istOffen));
   });
 
-  // Menue schliessen beim Klick auf einen Link
-  mobilesMenue?.querySelectorAll('a').forEach((link) => {
+  // Menü schliessen beim Klick auf einen Link
+  mobilesMenü?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      mobilesMenue.classList.add('hidden');
+      mobilesMenü.classList.add('hidden');
       hamburgerSymbol?.classList.remove('hidden');
       schliessenSymbol?.classList.add('hidden');
       hamburger?.setAttribute('aria-expanded', 'false');
