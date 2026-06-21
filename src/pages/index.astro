@@ -303,7 +303,9 @@ import Bewertungen from '../components/Bewertungen.astro';
             class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 bg-white focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow"
           >
             <option value="" disabled selected>Bitte wählen...</option>
-            <option value="Führerschein Klasse B / B197">Führerschein Klasse B / B197</option>
+            <option value="Tarif Select">Tarif Select (200,- Euro Grundbetrag)</option>
+            <option value="Tarif Prime">Tarif Prime (500,- Euro Grundbetrag)</option>
+            <option value="Führerschein Klasse B / B197">Führerschein Klasse B / B197 (Tarif offen)</option>
             <option value="Fast Lane Theoriekurs Juli">Fast Lane Theoriekurs Juli</option>
             <option value="Anhängerführerschein B96">Anhängerführerschein B96</option>
             <option value="Anhängerführerschein BE">Anhängerführerschein BE</option>
@@ -350,3 +352,15 @@ import Bewertungen from '../components/Bewertungen.astro';
     </div>
   </section>
 </Seitenlayout>
+
+<script>
+  // Tarif aus URL-Parameter vorauswaehlen (?tarif=select oder ?tarif=prime)
+  const params = new URLSearchParams(window.location.search);
+  const tarif = params.get('tarif');
+  if (tarif === 'select' || tarif === 'prime') {
+    const select = document.getElementById('interesse') as HTMLSelectElement | null;
+    if (select) {
+      select.value = tarif === 'select' ? 'Tarif Select' : 'Tarif Prime';
+    }
+  }
+</script>
