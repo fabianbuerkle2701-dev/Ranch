@@ -27,19 +27,21 @@ const istAktiv = (href: string) =>
         <!-- Logo -->
         <a
           href="/"
-          class="flex items-center gap-3 group"
+          class="flex items-center gap-2.5 group flex-shrink-0"
           aria-label="Fahrschule V3. GmbH Startseite"
         >
-          <!-- Logo: oranger Kreis mit V3 schwarz -->
           <div class="relative flex-shrink-0">
-            <div class="w-9 h-9 bg-gelb-400 rounded-full flex items-center justify-center">
+            <div class="w-10 h-10 bg-gelb-400 rounded-full flex items-center justify-center">
               <span class="font-display font-900 text-base text-blau-900 leading-none tracking-tight">V3</span>
             </div>
             <div class="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-gelb-400 rounded-full border-2 border-blau-900"></div>
           </div>
-          <span class="text-schiefer-300 text-sm font-medium hidden sm:block group-hover:text-white transition-colors">
-            Fahrschule GmbH
-          </span>
+          <div class="flex flex-col leading-tight">
+            <span class="text-white font-display font-700 text-sm group-hover:text-gelb-400 transition-colors">
+              Fahrschule V3.
+            </span>
+            <span class="text-schiefer-400 text-xs">GmbH · Offenburg</span>
+          </div>
         </a>
 
         <!-- Desktop-Navigation -->
@@ -61,14 +63,14 @@ const istAktiv = (href: string) =>
           }
         </nav>
 
-        <!-- Aktions-Buttons Desktop -->
-        <div class="hidden lg:flex items-center gap-3">
-          <!-- WhatsApp -->
+        <!-- Rechte Seite: Desktop-Aktionen + Mobile-CTA + Hamburger -->
+        <div class="flex items-center gap-2">
+          <!-- WhatsApp (nur Desktop) -->
           <a
             href="https://wa.me/491735324092"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-1.5 px-3 py-2 text-sm text-schiefer-200 hover:text-white transition-colors"
+            class="hidden lg:flex items-center gap-1.5 px-3 py-2 text-sm text-schiefer-200 hover:text-white transition-colors"
             aria-label="WhatsApp Kontakt"
           >
             <svg class="w-5 h-5 text-green-400" viewBox="0 0 24 24" fill="currentColor">
@@ -79,33 +81,43 @@ const istAktiv = (href: string) =>
             WhatsApp
           </a>
 
-          <!-- Anmeldung CTA -->
+          <!-- Anmeldung CTA Desktop -->
           <a
             href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-primary text-sm py-2"
+            class="hidden lg:inline-flex btn-primary text-sm py-2"
           >
             Jetzt anmelden
           </a>
-        </div>
 
-        <!-- Hamburger-Button Mobile -->
-        <button
-          id="hamburger"
-          type="button"
-          class="lg:hidden p-2 rounded-lg text-schiefer-200 hover:text-white hover:bg-blau-700 transition-colors"
-          aria-label="Menü öffnen"
-          aria-expanded="false"
-          aria-controls="mobiles-menue"
-        >
-          <svg id="hamburger-symbol" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="schliessen-symbol" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+          <!-- Anmeldung CTA Mobile (kompakt) -->
+          <a
+            href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="lg:hidden px-3 py-1.5 bg-gelb-400 text-blau-900 font-display font-700 text-xs uppercase tracking-wide rounded-lg hover:bg-gelb-500 transition-colors"
+          >
+            Anmelden
+          </a>
+
+          <!-- Hamburger-Button Mobile -->
+          <button
+            id="hamburger"
+            type="button"
+            class="lg:hidden p-2 rounded-lg text-schiefer-200 hover:text-white hover:bg-blau-700 transition-colors"
+            aria-label="Menü öffnen"
+            aria-expanded="false"
+            aria-controls="mobiles-menue"
+          >
+            <svg id="hamburger-symbol" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="schliessen-symbol" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
       </div>
     </div>
