@@ -6,17 +6,27 @@ import Seitenlayout from '../components/Seitenlayout.astro';
   title="Karriere bei Fahrschule V3."
   description="Fahrlehrer oder Fahrlehrerin gesucht in Offenburg. Fahrschule V3. GmbH bietet aussergewoehnlichen Arbeitsplatz, Work-Life-Balance, E-Fahrzeuge und privaten Kfz-Zuschuss."
 >
-  <!-- Seiten-Hero -->
-  <section class="bg-blau-900 text-white py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Seiten-Hero mit Fahrzeugfoto -->
+  <section class="relative text-white overflow-hidden min-h-[60vh] flex items-center">
+    <div class="absolute inset-0" aria-hidden="true">
+      <img
+        src="/images/fahrzeug-nacht.jpeg"
+        alt="Ford Mustang Mach-E der Fahrschule V3. GmbH bei Nacht"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gelb-400"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div class="max-w-2xl">
         <span class="badge mb-4 inline-block">Jetzt bewerben</span>
         <h1 class="font-display font-900 text-5xl md:text-6xl leading-tight mb-5">
           Werde Teil<br />von V3.
         </h1>
-        <p class="text-schiefer-300 text-lg leading-relaxed">
+        <p class="text-schiefer-200 text-lg leading-relaxed">
           Wir suchen baldmöglichst zwei Fahrlehrerinnen oder Fahrlehrer in Vollzeit. Und als
-          Ausbildungsfahrschule begrueßen wir auch Praktikantinnen und Praktikanten.
+          Ausbildungsfahrschule begrüßen wir auch Praktikantinnen und Praktikanten.
         </p>
       </div>
     </div>

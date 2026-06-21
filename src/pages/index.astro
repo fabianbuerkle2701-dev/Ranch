@@ -6,77 +6,90 @@ import Seitenlayout from '../components/Seitenlayout.astro';
   title="Hier beginnt alles"
   description="Fahrschule V3. GmbH Offenburg: Fuehrerschein Klasse B197, Fast Lane Theorie in 7 Tagen, keine Wartezeit, bestes Preis-Leistungs-Verhaeltnis der Region."
 >
-  <!-- Hero-Bereich -->
-  <section class="relative bg-blau-900 text-white overflow-hidden">
-    <!-- Hintergrundmuster: orangene Kreise als Logo-Referenz -->
-    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gelb-400 rounded-full opacity-10 blur-3xl"></div>
-      <div class="absolute top-1/2 -right-16 w-64 h-64 bg-gelb-500 rounded-full opacity-5 blur-2xl"></div>
-      <div class="absolute -bottom-16 left-1/4 w-48 h-48 bg-gelb-400 rounded-full opacity-8 blur-2xl"></div>
+  <!-- Hero-Bereich mit echtem Hintergrundfoto -->
+  <section class="relative text-white overflow-hidden min-h-[85vh] flex items-center">
+    <!-- Hintergrundbild: Fahrschule Innenraum -->
+    <div class="absolute inset-0" aria-hidden="true">
+      <img
+        src="/images/fahrschule-innenraum.jpeg"
+        alt="Moderner Theorieraum der Fahrschule V3. GmbH Offenburg"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <!-- Dunkler Verlauf fuer Lesbarkeit -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30"></div>
+      <!-- Orangener Akzentstreifen unten -->
+      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gelb-400"></div>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
-      <div class="max-w-3xl">
-        <!-- Badge -->
-        <span class="badge mb-6 inline-block">
-          Fast Lane: Theorie in nur 7 Tagen
-        </span>
+    <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        <!-- Hauptueberschrift -->
-        <h1 class="font-display font-900 text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
-          Hier beginnt<br />
-          <span class="text-gelb-400">alles.</span>
-        </h1>
+        <!-- Text links -->
+        <div>
+          <span class="badge mb-6 inline-block">
+            Fast Lane: Theorie in nur 7 Tagen
+          </span>
 
-        <p class="text-schiefer-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
-          Volker J. Blaesius und sein Team begleiten dich sicher ans Ziel. Die größte
-          Einzelfahrschule der Region, B197, keine Wartezeit und bestes Preis-Leistungs-Verhältnis.
-        </p>
+          <h1 class="font-display font-900 text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+            Hier beginnt<br />
+            <span class="text-gelb-400">alles.</span>
+          </h1>
 
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary text-base"
-          >
-            Jetzt anmelden
-          </a>
-          <a href="/preise" class="btn-secondary text-base">
-            Preise ansehen
-          </a>
+          <p class="text-schiefer-200 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
+            Volker J. Blaesius und sein Team begleiten dich sicher ans Ziel. Die größte
+            Einzelfahrschule der Region, B197, keine Wartezeit und bestes Preis-Leistungs-Verhältnis.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary text-base"
+            >
+              Jetzt anmelden
+            </a>
+            <a href="/preise" class="btn-secondary text-base">
+              Preise ansehen
+            </a>
+          </div>
+
+          <!-- Kennzahlen -->
+          <div class="mt-12 grid grid-cols-3 gap-6 border-t border-white/20 pt-8">
+            <div>
+              <p class="font-display font-800 text-3xl text-gelb-400">9</p>
+              <p class="text-schiefer-300 text-sm mt-1">Fahrlehrerinnen und Fahrlehrer</p>
+            </div>
+            <div>
+              <p class="font-display font-800 text-3xl text-gelb-400">7</p>
+              <p class="text-schiefer-300 text-sm mt-1">Tage Theorie (Fast Lane)</p>
+            </div>
+            <div>
+              <p class="font-display font-800 text-3xl text-gelb-400">2008</p>
+              <p class="text-schiefer-300 text-sm mt-1">Das Original</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Kennzahlen -->
-        <div class="mt-14 grid grid-cols-3 gap-6 border-t border-blau-700/50 pt-8">
-          <div>
-            <p class="font-display font-800 text-3xl text-gelb-400">9</p>
-            <p class="text-schiefer-400 text-sm mt-1">Fahrlehrerinnen und Fahrlehrer</p>
-          </div>
-          <div>
-            <p class="font-display font-800 text-3xl text-gelb-400">7</p>
-            <p class="text-schiefer-400 text-sm mt-1">Tage Theorie (Fast Lane)</p>
-          </div>
-          <div>
-            <p class="font-display font-800 text-3xl text-gelb-400">seit 2008</p>
-            <p class="text-schiefer-400 text-sm mt-1">Das Original</p>
+        <!-- Volker Portrait rechts (nur Desktop) -->
+        <div class="hidden lg:flex justify-end">
+          <div class="relative">
+            <div class="w-72 h-80 xl:w-80 xl:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-gelb-400/30">
+              <img
+                src="/images/volker-portrait.jpeg"
+                alt="Volker J. Blaesius, Inhaber und Geschäftsführer der Fahrschule V3. GmbH"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <!-- Name-Badge über dem Portrait -->
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gelb-400 text-blau-900 px-5 py-2 rounded-xl shadow-lg whitespace-nowrap">
+              <p class="font-display font-800 text-sm">Volker J. Blaesius</p>
+              <p class="text-xs font-medium opacity-80">Inhaber, Fahrlehrer seit 1985</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Bildplatzhalter fuer eigenes Foto -->
-    <div class="absolute right-0 top-0 bottom-0 w-2/5 hidden lg:block">
-      <div class="h-full bg-blau-800 flex items-center justify-center">
-        <div class="text-center p-8">
-          <div class="w-24 h-24 rounded-full bg-blau-700 mx-auto mb-4 flex items-center justify-center">
-            <svg class="w-12 h-12 text-schiefer-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-            </svg>
-          </div>
-          <p class="text-schiefer-500 text-xs">Bildplatzhalter: eigenes Foto einfuegen</p>
-        </div>
       </div>
     </div>
   </section>
@@ -271,12 +284,16 @@ import Seitenlayout from '../components/Seitenlayout.astro';
     </div>
   </section>
 
-  <!-- Gedenken -->
-  <section class="py-8 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-schiefer-400 text-sm">
-        Die Fahrschule V3. trauert um ihren ehemaligen Mitarbeiter Egon Hagedorn.
-      </p>
+  <!-- Gedenken Egon Hagedorn -->
+  <section class="py-12 bg-schiefer-100">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      <div class="karte flex flex-col items-center text-center gap-5 border-t-4 border-schiefer-400">
+        <img
+          src="/images/nachruf-egon-hagedorn.jpeg"
+          alt="Nachruf Egon Hagedorn, Fahrschule V3. GmbH"
+          class="w-full max-w-md rounded-lg shadow-md mt-2"
+        />
+      </div>
     </div>
   </section>
 
