@@ -43,9 +43,7 @@ import Seitenlayout from '../components/Seitenlayout.astro';
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#anmeldung"
               class="btn-primary text-base"
             >
               Jetzt anmelden
@@ -234,9 +232,7 @@ import Seitenlayout from '../components/Seitenlayout.astro';
           Alle Tarife vergleichen
         </a>
         <a
-          href="https://www.fahrschulanmeldung.de/v3-gmbh-offenburg"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/#anmeldung"
           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-blau-900 text-blau-900 font-display font-700 text-sm uppercase tracking-wider rounded-lg hover:bg-blau-900 hover:text-white transition-colors"
         >
           Jetzt anmelden
@@ -285,25 +281,25 @@ import Seitenlayout from '../components/Seitenlayout.astro';
     </div>
   </section>
 
-  <!-- Kontaktformular -->
-  <section class="py-16 md:py-24 bg-schiefer-100">
+  <!-- Anmelde- und Kontaktformular -->
+  <section id="anmeldung" class="py-16 md:py-24 bg-schiefer-100">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 reveal">
-        <h2 class="abschnitt-titel">Frage oder Anliegen?</h2>
+        <span class="badge mb-4 inline-block">Direkte Anmeldung</span>
+        <h2 class="abschnitt-titel">Jetzt anmelden oder anfragen</h2>
         <p class="abschnitt-untertitel mx-auto">
-          Schreib uns direkt. Volker antwortet persönlich.
+          Schreib uns direkt. Volker antwortet persönlich, in der Regel am selben Tag.
         </p>
       </div>
 
       <form
-        name="kontakt"
+        name="anmeldung"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-feld"
         class="karte reveal space-y-5"
       >
-        <!-- Netlify Honeypot-Feld -->
-        <input type="hidden" name="form-name" value="kontakt" />
+        <input type="hidden" name="form-name" value="anmeldung" />
         <p class="hidden">
           <label>Nicht ausfüllen: <input name="bot-feld" /></label>
         </p>
@@ -324,32 +320,65 @@ import Seitenlayout from '../components/Seitenlayout.astro';
             />
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-blau-900 mb-1.5">
-              E-Mail <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+            <label for="telefon" class="block text-sm font-medium text-blau-900 mb-1.5">
+              Telefon <span class="text-red-500" aria-label="Pflichtfeld">*</span>
             </label>
             <input
-              type="email"
-              id="email"
-              name="email"
+              type="tel"
+              id="telefon"
+              name="telefon"
               required
-              autocomplete="email"
+              autocomplete="tel"
               class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 placeholder-schiefer-400 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow"
-              placeholder="deine@email.de"
+              placeholder="0173 ..."
             />
           </div>
         </div>
 
         <div>
+          <label for="email" class="block text-sm font-medium text-blau-900 mb-1.5">
+            E-Mail <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 placeholder-schiefer-400 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow"
+            placeholder="deine@email.de"
+          />
+        </div>
+
+        <div>
+          <label for="interesse" class="block text-sm font-medium text-blau-900 mb-1.5">
+            Ich interessiere mich für <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+          </label>
+          <select
+            id="interesse"
+            name="interesse"
+            required
+            class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 bg-white focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow"
+          >
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Führerschein Klasse B / B197">Führerschein Klasse B / B197</option>
+            <option value="Fast Lane Theoriekurs Juli">Fast Lane Theoriekurs Juli</option>
+            <option value="Anhängerführerschein B96">Anhängerführerschein B96</option>
+            <option value="Anhängerführerschein BE">Anhängerführerschein BE</option>
+            <option value="Allgemeine Frage">Allgemeine Frage</option>
+          </select>
+        </div>
+
+        <div>
           <label for="nachricht" class="block text-sm font-medium text-blau-900 mb-1.5">
-            Nachricht <span class="text-red-500" aria-label="Pflichtfeld">*</span>
+            Nachricht
           </label>
           <textarea
             id="nachricht"
             name="nachricht"
-            rows="5"
-            required
+            rows="4"
             class="w-full px-4 py-3 border border-schiefer-200 rounded-lg text-blau-900 placeholder-schiefer-400 focus:outline-none focus:ring-2 focus:ring-gelb-400 focus:border-transparent transition-shadow resize-none"
-            placeholder="Deine Frage oder dein Anliegen..."
+            placeholder="Fragen, Wunschtermin oder sonstiges..."
           ></textarea>
         </div>
 
@@ -373,7 +402,7 @@ import Seitenlayout from '../components/Seitenlayout.astro';
           type="submit"
           class="w-full sm:w-auto btn-primary"
         >
-          Nachricht senden
+          Absenden
         </button>
       </form>
     </div>
